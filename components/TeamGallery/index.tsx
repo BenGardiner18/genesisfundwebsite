@@ -26,7 +26,7 @@ const teamMembers: TeamMember[] = [
     linkedinUrl: "https://www.linkedin.com/in/youssefrezkalla/"
   },
   {
-    name: "Login Hine",
+    name: "Logan Hine",
     university: "Harvard University",
     description: "Founder at Arcadia Ventures with 3 years of experience in VC across Newlin Ventures, GoAhead Ventures and an operator background at Ridge and Atmos AI. ",
     imageUrl: LoganPic.src,
