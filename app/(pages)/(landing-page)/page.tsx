@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Hero />
-      <Stats />
-      <Portfolio />
+      {/* <Stats /> */}
+      {/* <Portfolio /> */}
       <Investment />
     </main>
   );
