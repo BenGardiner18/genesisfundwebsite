@@ -57,7 +57,7 @@ export default function StartupDialog({ startup, onClose }: StartupDialogProps) 
               <div className="flex gap-4 mt-4">
                 {startup.linkedin && (
                   <a 
-                    href={startup.linkedin}
+                    href={startup.linkedin.startsWith('http') ? startup.linkedin : `https://${startup.linkedin}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-600 hover:text-blue-800"
@@ -67,7 +67,7 @@ export default function StartupDialog({ startup, onClose }: StartupDialogProps) 
                 )}
                 {startup.website && (
                   <a
-                    href={startup.website}
+                    href={startup.website.startsWith('http') ? startup.website : `https://${startup.website}`}
                     target="_blank"
                     rel="noopener noreferrer" 
                     className="text-blue-600 hover:text-blue-800"
