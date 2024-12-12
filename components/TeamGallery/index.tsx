@@ -23,35 +23,35 @@ const teamMembers: TeamMember[] = [
     university: "Boston University",
     description:"Two-time founder turned VC with experience at BECO Capital, Global Ventures, and NOA, a Venture Partner at GoingVC, Founding Member of Partner Track, a global community of 400+ VC professionals.",
     imageUrl: YoussefPic.src,
-    linkedinUrl: "https://linkedin.com/in/youssef-ghobreyal"
+    linkedinUrl: "https://www.linkedin.com/in/youssefrezkalla/"
   },
   {
     name: "Login Hine",
     university: "Harvard University",
     description: "Founder at Arcadia Ventures with 3 years of experience in VC across Newlin Ventures, GoAhead Ventures and an operator background at Ridge and Atmos AI. ",
     imageUrl: LoganPic.src,
-    linkedinUrl: "https://linkedin.com/in/sarah-chen"
+    linkedinUrl: "https://www.linkedin.com/in/logan-hine-4a810a217/"
   },
   {
-    name: "Andrew Kirby",
+    name: "Andre Kirby",
     university: "Northeastern University", 
     description: "Startup operator at Snyk, Extern and Workiva. VC professional with 2 years of experience at IDEA: Northeastern’s Venture Accelerator and Glasswing Ventures. ",
     imageUrl: AndrePic.src,
-    linkedinUrl: "https://linkedin.com/in/michael-rodriguez"
+    linkedinUrl: "https://www.linkedin.com/in/andre-kirby/"
   },
   {
     name: "Jules Deplanck",
     university: "Babson College",
     description: "Two-time founder and startup operator in Sequoia and Headline VC portfolio company - Elyn. VC experience from Hera Capital and Interlace VC and Founder of Deelscoop, a US/Europe community of 700+ VC professionals. ",
     imageUrl: JulesPic.src,
-    linkedinUrl: "https://linkedin.com/in/sarah-chen"
+    linkedinUrl: "https://www.linkedin.com/in/julesdeplanck/"
   },
   {
     name: "Ben Gardiner",
     university: "Boston University",
     description: "Founder of HR Tech Startup Talentora backed by Boston University Innovation Lab, Strategy and Ops at Vista Equity backed InvoiceCloud, ML and Software Engineering at BU Spark, and Data Science at Syneos Health",
     imageUrl: BenPic.src,
-    linkedinUrl: "https://linkedin.com/in/sarah-chen"
+    linkedinUrl: "https://www.linkedin.com/in/bengardiner18/"
   },
   {
     name: "Prat Mallick",
