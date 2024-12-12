@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Skeleton } from '@/components/ui/skeleton'
 import TableView from './TableView'
 import GalleryView from './GalleryView'
 import { Input } from '@/components/ui/input'
@@ -62,28 +63,32 @@ export default function PortfolioView() {
 
   return (
     <div className="p-4 mx-auto w-3/4">
-      <div className="flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Portfolio Companies</h1>
-        <div className="flex items-center space-x-2">
-          <Switch
-            id="view-toggle"
-            checked={isTableView}
-            onCheckedChange={setIsTableView}
-          />
-          <Label htmlFor="view-toggle">
-            {isTableView ? 'Table View' : 'Gallery View'}
-          </Label>
-        </div>
+      <div className="flex justify-between items-center gap-4">
+        <h1 className="text-2xl font-bold mb-4">Portfolio Companies</h1>
+        {data.length > 0 && (
+          <div className="flex items-center space-x-2">
+            <Switch
+              id="view-toggle"
+              checked={isTableView}
+              onCheckedChange={setIsTableView}
+            />
+            <Label htmlFor="view-toggle">
+              {isTableView ? 'Table View' : 'Gallery View'}
+            </Label>
+          </div>
+        )}
       </div>
       
-      <div className="flex items-center py-4">
-        <Input
-          placeholder="Filter companies..."
-          value={filter}
-          onChange={(event) => setFilter(event.target.value)}
-          className="max-w-sm"
-        />
-      </div>
+      {data.length > 0 && (
+        <div className="flex items-center py-4">
+          <Input
+            placeholder="Filter companies..."
+            value={filter}
+            onChange={(event) => setFilter(event.target.value)}
+            className="max-w-sm"
+          />
+        </div>
+      )}
 
       {isLoading ? (
         <div className="flex justify-center items-center h-64">
@@ -91,16 +96,37 @@ export default function PortfolioView() {
         </div>
       ) : (
         <>
-          {isTableView ? (
-            <TableView 
-              data={filteredData} 
-              onStartupSelect={setSelectedStartup} 
-            />
+          {data.length === 0 ? (
+            <div className="rounded-lg border border-gray-200 shadow-sm p-8 bg-white">
+              <div className="text-center">
+                <div className="mb-4">
+                  <svg className="mx-auto h-12 w-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                  </svg>
+                </div>
+                <p className="text-xl font-semibold text-gray-900">We haven&apos;t invested in any student startups yet.</p>
+                <p className="mt-2 text-gray-600">We&apos;re actively looking for opportunities and fundraising.</p>
+              </div>
+              <div className="mt-8 space-y-4">
+                <Skeleton className="h-12 w-full" />
+                <Skeleton className="h-12 w-full" />
+                <Skeleton className="h-12 w-full" />
+              </div>
+            </div>
           ) : (
-            <GalleryView 
-              data={filteredData} 
-              onStartupSelect={setSelectedStartup} 
-            />
+            <>
+              {isTableView ? (
+                <TableView 
+                  data={filteredData} 
+                  onStartupSelect={setSelectedStartup} 
+                />
+              ) : (
+                <GalleryView 
+                  data={filteredData} 
+                  onStartupSelect={setSelectedStartup} 
+                />
+              )}
+            </>
           )}
         </>
       )}
