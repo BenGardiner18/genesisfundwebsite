@@ -53,13 +53,13 @@ const teamMembers: TeamMember[] = [
     imageUrl: BenPic.src,
     linkedinUrl: "https://www.linkedin.com/in/bengardiner18/"
   },
-  {
-    name: "Prat Mallick",
-    university: "Harvard University",
-    imageUrl: PratPic.src,
-    description: "President of Politics at Harvard Kennedy with VC experience through General Catalyst as first an intern and now a Managing Director, current Fellow at XFund and doing Growth at YC-backed Sweetspot.",
-    linkedinUrl: "https://www.linkedin.com/in/mallickprat/"
-  },
+  // {
+  //   name: "Prat Mallick",
+  //   university: "Harvard University",
+  //   imageUrl: PratPic.src,
+  //   description: "President of Politics at Harvard Kennedy with VC experience through General Catalyst as first an intern and now a Managing Director, current Fellow at XFund and doing Growth at YC-backed Sweetspot.",
+  //   linkedinUrl: "https://www.linkedin.com/in/mallickprat/"
+  // },
 ];
 
 const TeamGallery = () => {
