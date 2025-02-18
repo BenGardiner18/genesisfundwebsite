@@ -1,10 +1,9 @@
 import { NextResponse } from 'next/server';
 
-export async function GET(
-  request: Request,
-  context: { params: { id: string } }
-) {
-  const { id } = context.params;
+export async function GET(request: Request, context: any) {
+  // Await the params object before accessing its properties
+  const params = await context.params;
+  const { id } = params;
   
   try {
     const response = await fetch(
@@ -25,9 +24,6 @@ export async function GET(
     return NextResponse.json({ data });
   } catch (error) {
     console.error('Error fetching post:', error);
-    return NextResponse.json(
-      { error: 'Failed to fetch post' },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: 'Failed to fetch post' }, { status: 500 });
   }
 }

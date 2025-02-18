@@ -10,13 +10,18 @@ import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 
 interface Post {
-  id: string;
-  title: string;
-  subtitle: string;
-  content: string;
-  created_at: string;
-  thumbnail_url?: string;
-  web_url: string;
+  data: {
+    title: string;
+    subtitle: string;
+    content: string;
+    created_at: string;
+    thumbnail_url?: string;
+    web_url: string;
+    authors?: any[];
+    publish_date?: number;
+    status?: string;
+    free_web_content?: string;
+  };
 }
 
 function PostSkeleton() {
@@ -93,20 +98,22 @@ export default function BlogPostPage() {
 
   return (
     <div className="container max-w-4xl mx-auto pb-5">
-      <Button asChild className="my-4">
-        <Link href="/blog">← Back to Blog</Link>
-      </Button>
+      <div className="flex justify-between items-center my-4">
+        <Button asChild>
+          <Link href="/blog">← Back to Blog</Link>
+        </Button>
+        {postData?.web_url && (
+          <Button asChild variant="outline">
+            <Link href={postData.web_url} target="_blank">Read it in Beehiiv</Link>
+          </Button>
+        )}
+      </div>
 
       {loading ? (
         <PostSkeleton />
       ) : (
         <Card className="rounded-lg">
-          {post?.thumbnail_url && (
-            <div 
-              className="w-full h-[400px] bg-cover bg-center rounded-t-lg" 
-              style={{ backgroundImage: `url(${postData?.thumbnail_url})` }}
-            />
-          )}
+        
           <CardHeader>
             <div className="space-y-4">
               <h1 className="text-4xl font-bold">{postData?.title}</h1>
