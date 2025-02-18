@@ -1,5 +1,10 @@
 import { NextResponse } from 'next/server';
-import { kv } from '@vercel/kv';
+import { Redis } from '@upstash/redis';
+
+const redis = new Redis({
+  url: process.env.UPSTASH_REDIS_REST_URL!,
+  token: process.env.UPSTASH_REDIS_REST_TOKEN!,
+});
 
 const CACHE_KEY = 'rss_feed';
 const CACHE_DURATION = 3600; // 1 hour in seconds
@@ -7,7 +12,7 @@ const CACHE_DURATION = 3600; // 1 hour in seconds
 export async function GET() {
   try {
     // Try to get cached RSS first
-    const cachedRss = await kv.get(CACHE_KEY);
+    const cachedRss = await redis.get(CACHE_KEY);
     if (cachedRss) {
       return new NextResponse(cachedRss as string, {
         headers: {
@@ -54,7 +59,7 @@ export async function GET() {
 </rss>`;
 
     // Cache the RSS feed
-    await kv.set(CACHE_KEY, rssXml, { ex: CACHE_DURATION });
+    await redis.set(CACHE_KEY, rssXml, { ex: CACHE_DURATION });
 
     return new NextResponse(rssXml, {
       headers: {
