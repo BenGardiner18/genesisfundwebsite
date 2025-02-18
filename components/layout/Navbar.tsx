@@ -12,6 +12,7 @@ const Navbar = () => {
     { label: "Portfolio", href: "/portfolio" },
     { label: "Investment Thesis", href: "/investment-thesis" },
     { label: "Team", href: "/team" },
+    { label: "Blog", href: "/blog" },
     { label: "Apply", href: "/apply" },
     { label: "Jobs", href: "/jobs" },
   ];
