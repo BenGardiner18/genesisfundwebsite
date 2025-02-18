@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import JulesPic from "@/public/JulesPic.jpeg";
 import BenPic from "@/public/BenPic.jpeg";
-import PratPic from "@/public/PratPic.jpeg";
+import CarsonPic from "@/public/CarsonPic.jpeg";
 import LoganPic from "@/public/LoganPic.jpeg";
 import AndrePic from "@/public/AndrePic.jpeg";
 import YoussefPic from "@/public/YoussefPic.jpeg";
@@ -53,13 +53,13 @@ const teamMembers: TeamMember[] = [
     imageUrl: BenPic.src,
     linkedinUrl: "https://www.linkedin.com/in/bengardiner18/"
   },
-  // {
-  //   name: "Prat Mallick",
-  //   university: "Harvard University",
-  //   imageUrl: PratPic.src,
-  //   description: "President of Politics at Harvard Kennedy with VC experience through General Catalyst as first an intern and now a Managing Director, current Fellow at XFund and doing Growth at YC-backed Sweetspot.",
-  //   linkedinUrl: "https://www.linkedin.com/in/mallickprat/"
-  // },
+  {
+    name: "Carson Ortolani",
+    university: "Northeastern University",
+    description: "Founder advocate with 3 years of experience in accelerators, startups, and fund operations. Obsessed with consumer and enterprise tech and driven by a passion for supporting creative founders. Excited to bring my passion for fundraising and working with founders to a full-time role!",
+    imageUrl: CarsonPic.src,
+    linkedinUrl: "https://www.linkedin.com/in/carsonortolani/"
+  },
 ];
 
 const TeamGallery = () => {

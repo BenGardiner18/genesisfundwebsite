@@ -1,22 +1,20 @@
 "use client";
 
-import { useState } from "react";
+import * as React from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 import Logo from "@/components/ui/Logo";
+import { cn } from "@/lib/utils";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const navItems = [
-    { label: "Portfolio", href: "/portfolio" },
-    { label: "Investment Thesis", href: "/investment-thesis" },
-    { label: "Team", href: "/team" },
-    { label: "Blog", href: "/blog" },
-    { label: "Apply", href: "/apply" },
-    { label: "Jobs", href: "/jobs" },
-  ];
-
   return (
     <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -28,50 +26,94 @@ const Navbar = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.label}
-                href={item.href}
-                className="text-gray-700 hover:text-blue-600 transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
-          </div>
+          <NavigationMenu>
+            <NavigationMenuList>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Portfolio</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                    <ListItem href="/portfolio" title="Our Portfolio">
+                      Discover the innovative startups we&apos;ve backed
+                    </ListItem>
+                    <ListItem href="/investment-thesis" title="Investment Thesis">
+                      Learn about our investment strategy and focus areas
+                    </ListItem>
+                    <ListItem href="/portfolio/sectors" title="Sectors">
+                      Explore our investments across different industries
+                    </ListItem>
+                    <ListItem href="/portfolio/highlights" title="Highlights">
+                      Key achievements and milestones from our portfolio
+                    </ListItem>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
 
-          {/* Mobile Navigation Button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-blue-600"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
-        </div>
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                    <ListItem href="/blog" title="Blog">
+                      Insights, news, and updates from our team
+                    </ListItem>
+                    <ListItem href="/team" title="Team">
+                      Meet the people behind Genesis Fund
+                    </ListItem>
+                    <ListItem href="/resources" title="Founder Resources">
+                      Access our curated collection of startup resources and join our founder community
+                    </ListItem>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
 
-        {/* Mobile Navigation Menu */}
-        {isOpen && (
-          <div className="md:hidden">
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              {navItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="block px-3 py-2 text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
+              <NavigationMenuItem>
+                <Link href="/apply" legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Apply for Funding
+                  </NavigationMenuLink>
                 </Link>
-              ))}
-            </div>
-          </div>
-        )}
+              </NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <Link href="/jobs" legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                    Join Genesis Fund
+                  </NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+            </NavigationMenuList>
+          </NavigationMenu>
+        </div>
       </div>
     </nav>
   );
 };
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a"> & {
+    title: string;
+  }
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";
 
 export default Navbar;
