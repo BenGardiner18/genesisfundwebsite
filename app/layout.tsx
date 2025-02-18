@@ -4,6 +4,8 @@ import { Inter } from 'next/font/google';
 import Footer from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
 const inter = Inter({ subsets: ['latin'] });
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: 'Genesis Fund - Student Venture Capital',
@@ -20,7 +22,12 @@ export default function RootLayout({
       <body className={inter.className} suppressHydrationWarning>
         <Navbar />
         <div className="min-h-screen flex flex-col">
-          <div className="flex-grow mt-16">{children}</div>
+          <div className="flex-grow mt-16">
+          {children}
+          <Analytics />
+          <SpeedInsights />
+
+          </div>
           <Footer />
         </div>
       </body>
