@@ -10,18 +10,17 @@ import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 
 interface Post {
-  data: {
-    title: string;
-    subtitle: string;
-    content: string;
-    created_at: string;
-    thumbnail_url?: string;
-    web_url: string;
-    authors?: any[];
-    publish_date?: number;
-    status?: string;
-    free_web_content?: string;
-  };
+  id: string;
+  title: string;
+  subtitle: string;
+  authors: string[];
+  created: number;
+  status: string;
+  publish_date: number;
+  displayed_date: string | null;
+  thumbnail_url: string;
+  web_url: string;
+  free_web_content?: string;
 }
 
 function PostSkeleton() {
@@ -51,8 +50,6 @@ export default function BlogPostPage() {
   const [loading, setLoading] = useState(true);
   const params = useParams();
   const { toast } = useToast();
-  
-
 
   useEffect(() => {
     const fetchPost = async () => {
@@ -93,18 +90,15 @@ export default function BlogPostPage() {
     );
   }
 
-  const postData = post?.data;
-
-
   return (
     <div className="container max-w-4xl mx-auto pb-5">
       <div className="flex justify-between items-center my-4">
         <Button asChild>
           <Link href="/blog">← Back to Blog</Link>
         </Button>
-        {postData?.web_url && (
+        {post?.web_url && (
           <Button asChild variant="outline">
-            <Link href={postData.web_url} target="_blank">Read it in Beehiiv</Link>
+            <Link href={post.web_url} target="_blank">Read it in Beehiiv</Link>
           </Button>
         )}
       </div>
@@ -113,42 +107,40 @@ export default function BlogPostPage() {
         <PostSkeleton />
       ) : (
         <Card className="rounded-lg">
-        
           <CardHeader>
             <div className="space-y-4">
-              <h1 className="text-4xl font-bold">{postData?.title}</h1>
-              {postData?.thumbnail_url && (
+              <h1 className="text-4xl font-bold">{post?.title}</h1>
+              {post?.thumbnail_url && (
                 <div 
                   className="w-full h-[400px] bg-cover bg-center rounded-lg" 
-                  style={{ backgroundImage: `url(${postData.thumbnail_url})` }}
+                  style={{ backgroundImage: `url(${post.thumbnail_url})` }}
                 />
               )}
               <div className="flex flex-row gap-2 justify-between">
-              <div className="flex items-center gap-2 text-muted-foreground">
-                {postData?.authors?.map((author: any, index: number) => (
-                  <p key={author.id} className="text-sm">
-                    {index > 0 ? ', ' : 'By '}{author}
+                <div className="flex items-center gap-2 text-muted-foreground">
+                  {post?.authors?.length > 0 && (
+                    <p className="text-sm">
+                      By {post.authors.join(', ')}
+                    </p>
+                  )}
+                </div>
+                <div className="flex items-center gap-4">
+                  <p className="text-sm text-muted-foreground">
+                    {post?.publish_date && new Date(post.publish_date * 1000).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long', 
+                      day: 'numeric'
+                    })}
                   </p>
-                ))}
-               
-              </div>
-              <div className="flex items-center gap-4">
-                <p className="text-sm text-muted-foreground">
-                  {postData?.publish_date && new Date(postData.publish_date * 1000).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </p>
-                <Badge variant="secondary">{postData?.status}</Badge>
-              </div>
+                  {post?.status && <Badge variant="secondary">{post.status}</Badge>}
+                </div>
               </div>
             </div>
           </CardHeader>
           <CardContent>
             <div 
               className="prose prose-lg max-w-none"
-              dangerouslySetInnerHTML={{ __html: postData?.free_web_content || '' }}
+              dangerouslySetInnerHTML={{ __html: post?.free_web_content || '' }}
             />
           </CardContent>
         </Card>
