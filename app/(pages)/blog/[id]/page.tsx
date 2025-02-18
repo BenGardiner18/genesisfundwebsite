@@ -118,7 +118,7 @@ export default function BlogPostPage() {
               )}
               <div className="flex flex-row gap-2 justify-between">
                 <div className="flex items-center gap-2 text-muted-foreground">
-                  {post?.authors?.length > 0 && (
+                  {post?.authors?.length && post.authors.length > 0 && (
                     <p className="text-sm">
                       By {post.authors.join(', ')}
                     </p>
