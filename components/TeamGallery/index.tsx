@@ -56,7 +56,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Carson Ortolani",
     university: "Northeastern University",
-    description: "Founder advocate with 3 years of experience in accelerators, startups, and fund operations. Obsessed with consumer and enterprise tech and driven by a passion for supporting creative founders. Excited to bring my passion for fundraising and working with founders to a full-time role!",
+    description: "Founder advocate with 3 years of experience across accelerators, startups, and venture fund operations including Glasswing Ventures, Techstars, IDEA: Northeastern’s Venture Accelerator, and Inrupt.",
     imageUrl: CarsonPic.src,
     linkedinUrl: "https://www.linkedin.com/in/carsonortolani/"
   },
