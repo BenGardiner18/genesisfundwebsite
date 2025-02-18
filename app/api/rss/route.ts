@@ -16,7 +16,7 @@ export async function GET() {
     if (cachedRss) {
       return new NextResponse(cachedRss as string, {
         headers: {
-          'Content-Type': 'application/xml',
+          'Content-Type': 'application/xml; charset=utf-8',
         },
       });
     }
@@ -40,21 +40,28 @@ export async function GET() {
     
     // Generate RSS XML
     const rssXml = `<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Genesis Fund Blog</title>
     <link>https://genesisfund.co/blog</link>
     <description>Empowering Boston's Brightest Student Founders</description>
     <language>en-us</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="https://genesisfund.co/api/rss" rel="self" type="application/rss+xml"/>
-    ${data.data.map((post: any) => `
+    ${data.data.map((post: any) => {
+      const pubDate = post.publish_date ? new Date(Number(post.publish_date) * 1000).toUTCString() : new Date(Number(post.created) * 1000).toUTCString();
+      const fullContent = post.free_web_content || post.subtitle || '';
+      return `
     <item>
       <title>${escapeXml(post.title || '')}</title>
       <link>https://genesisfund.co/blog/${post.id}</link>
-      <guid>https://genesisfund.co/blog/${post.id}</guid>
-      <pubDate>${new Date(Number(post.created_at) * 1000).toUTCString()}</pubDate>
+      <guid isPermaLink="true">https://genesisfund.co/blog/${post.id}</guid>
+      <pubDate>${pubDate}</pubDate>
       <description>${escapeXml(post.subtitle || '')}</description>
-    </item>`).join('')}
+      <content:encoded><![CDATA[${fullContent}]]></content:encoded>
+      ${post.thumbnail_url ? `<enclosure url="${escapeXml(post.thumbnail_url)}" type="image/jpeg" />` : ''}
+      ${post.authors && post.authors.length > 0 ? `<author>${escapeXml(post.authors.join(', '))}</author>` : ''}
+    </item>`}).join('')}
   </channel>
 </rss>`;
 
@@ -63,7 +70,7 @@ export async function GET() {
 
     return new NextResponse(rssXml, {
       headers: {
-        'Content-Type': 'application/xml',
+        'Content-Type': 'application/xml; charset=utf-8',
       },
     });
   } catch (error) {
