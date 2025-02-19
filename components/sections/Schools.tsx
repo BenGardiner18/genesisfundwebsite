@@ -9,62 +9,62 @@ interface School {
 const schools: School[] = [
   {
     name: 'Harvard University',
-    logo: '/schools/harvard.png',
+    logo: "https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/harvard-zqjFK53RJr8pw5wugURRXvTuDyWf8p.png",
     website: 'https://www.harvard.edu'
   },
   {
     name: 'MIT',
-    logo: '/schools/mit.png',
+    logo: "https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/mit-GRcbzBWlcJhRAcwtXYqA6x0251A0gQ.png",
     website: 'https://www.mit.edu'
   },
   {
     name: 'Boston University',
-    logo: '/schools/bu.png',
+    logo: "https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/bu-odzsUfBRq342dd7ljmzuM42rpP5Z1U.png",
     website: 'https://www.bu.edu'
   },
   {
     name: 'Northeastern University',
-    logo: '/schools/northeastern.png',
+    logo: "https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/northeastern-b8w4G9wTEge81uyAkkN59i0oC5qtiP.png",
     website: 'https://www.northeastern.edu'
   },
   {
     name: 'Tufts University',
-    logo: '/schools/tufts.png',
+    logo: 'https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/tufts-5rUmBvJajCi3n3qe2HSDb5GfgM35rp.png',
     website: 'https://www.tufts.edu'
   },
   {
     name: 'Boston College',
-    logo: '/schools/bc.png',
+    logo: "https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/bc-aHO1szrLF6f3LhPs0sqzcAE8fnSt5i.png",
     website: 'https://www.bc.edu'
   },
   { 
     name: 'Babson College',
-    logo: '/schools/babson.png',
+    logo: 'https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/babson-XCeTkJjSx1cvBL7VdjzLDLo4Zz8IM4.png',
     website: 'https://www.babson.edu'
   },
   {
     name: 'Emerson College',
-    logo: '/schools/emerson.png',
+    logo: 'https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/emerson-LMkdVA9A8u0m3Csih7cDG5b5f6ppzd.png',
     website: 'https://www.emerson.edu'
   },
   {
     name: 'Brandeis University',
-    logo: '/schools/brandeis.png',
+    logo: "https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/brandeis-WcjSFpfRh1xQZ6u63H4kcTkK2UV3WU.png",
     website: 'https://www.brandeis.edu'
   },
   {
     name: 'WPI',
-    logo: '/schools/wpi.png',
+    logo: 'https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/wpi-foK7NxFxd23DYzmOMiAQuok3Bx6BNc.png',
     website: 'https://www.wpi.edu'
   },
   {
     name: 'Suffolk University',
-    logo: '/schools/suffolk.png',
+    logo: 'https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/suffolk-V9AqABZa1KnIOD3R9XxFRYctZwlbkh.png',
     website: 'https://www.suffolk.edu'
   },
   {
     name: 'UMass Boston',
-    logo: '/schools/umb.png',
+    logo: 'https://pngqgrcukfipqmvx.public.blob.vercel-storage.com/Images/Universities/umb-VQ58XXjwgVf0FVmGlue188duFn1FsD.png',
     website: 'https://www.umb.edu'
   }
 ];
