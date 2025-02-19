@@ -43,6 +43,11 @@ const schools: School[] = [
     website: 'https://www.babson.edu'
   },
   {
+    name: 'Emerson College',
+    logo: '/schools/emerson.png',
+    website: 'https://www.emerson.edu'
+  },
+  {
     name: 'Brandeis University',
     logo: '/schools/brandeis.png',
     website: 'https://www.brandeis.edu'
@@ -58,16 +63,10 @@ const schools: School[] = [
     website: 'https://www.suffolk.edu'
   },
   {
-    name: 'Brandeis University',
-    logo: '/schools/brandeis.png',
-    website: 'https://www.brandeis.edu'
-  },
-  {
     name: 'UMass Boston',
     logo: '/schools/umb.png',
     website: 'https://www.umb.edu'
   }
-    
 ];
 
 const Schools = () => {
@@ -81,9 +80,9 @@ const Schools = () => {
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {schools.map((school) => (
+          {schools.map((school, index) => (
             <div
-              key={school.name}
+              key={`${school.name}-${index}`}
               className="flex justify-center"
             >
               <a href={school.website} target="_blank" rel="noopener noreferrer" 
@@ -101,6 +100,7 @@ const Schools = () => {
             </div>
           ))}
         </div>
+        <p className="text-center mt-8 text-gray-600 italic">...and more</p>
       </div>
     </section>
   );

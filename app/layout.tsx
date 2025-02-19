@@ -3,10 +3,12 @@ import type { Metadata } from 'next';
 import { Inter, Roboto_Condensed } from 'next/font/google';
 import Footer from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
-const inter = Inter({ subsets: ['latin'] });
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Toaster } from "@/components/ui/toaster"
+import { ToastProvider } from "@/components/ui/toast"
 
+const inter = Inter({ subsets: ['latin'] });
 const robotoCondensed = Roboto_Condensed({
   subsets: ["latin"],
   variable: "--font-roboto-condensed",
@@ -44,15 +46,18 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className} suppressHydrationWarning>
-        <Navbar />
-        <div className="min-h-screen flex flex-col">
-          <div className="flex-grow mt-16">
-            {children}
-            <Analytics />
-            <SpeedInsights />
+        <ToastProvider>
+          <Navbar />
+          <div className="min-h-screen flex flex-col">
+            <div className="flex-grow mt-16">
+              {children}
+              <Analytics />
+              <SpeedInsights />
+            </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
+          <Toaster />
+        </ToastProvider>
       </body>
     </html>
   );

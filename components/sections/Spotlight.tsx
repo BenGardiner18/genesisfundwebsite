@@ -11,9 +11,9 @@ const Spotlight = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="flex items-center justify-center">
           {/* Mercor Spotlight */}
-          <div>
+          {/* <div>
             <iframe 
               src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7297686390635462657" 
               height="755" 
@@ -23,10 +23,10 @@ const Spotlight = () => {
               title="Mercor LinkedIn Post"
               className="shadow-lg rounded-lg"
             />
-          </div>
+          </div> */}
 
           {/* Genesis Fund LinkedIn Feed */}
-          <div>
+          <div className="w-full max-w-4xl">
             <iframe 
               src="https://widgets.sociablekit.com/linkedin-page-posts/iframe/25525123" 
               frameBorder="0" 

@@ -1,6 +1,6 @@
 "use client";
 
-import { Briefcase, Code, Brain, Heart, Building, ShoppingCart } from "lucide-react";
+import { Briefcase, Code, BrainCircuit, Heart, Building, ShoppingCart } from "lucide-react";
 
 interface SectorProps {
   icon: React.ReactNode;
@@ -17,7 +17,7 @@ const sectors: SectorProps[] = [
     examples: ["AI/ML Tools", "Developer Tools", "Security Solutions"]
   },
   {
-    icon: <Brain className="h-8 w-8 text-blue-600" />,
+    icon: <BrainCircuit className="h-8 w-8 text-blue-600" />,
     title: "AI & Machine Learning",
     description: "Cutting-edge artificial intelligence and machine learning applications",
     examples: ["NLP Solutions", "Computer Vision", "Predictive Analytics"]
