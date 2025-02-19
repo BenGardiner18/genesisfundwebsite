@@ -45,7 +45,7 @@ export default function BlogPage() {
   const { toast } = useToast();
 
   // Define which statuses to hide
-  const hiddenStatuses = ['deleted','archived']; // Add or remove statuses as needed
+  const hiddenStatuses = ['draft']; // Add or remove statuses as needed
 
   const convertedDate = (date: string) => {
     return new Date(Number(date) * 1000).toLocaleDateString('en-US', {
@@ -151,6 +151,13 @@ export default function BlogPage() {
             <PostSkeleton />
             <PostSkeleton />
           </>
+        ) : posts.length === 0 ? (
+          <Card className=" flex flex-col items-center p-6">
+            <CardHeader>
+              <CardTitle>No Posts Yet</CardTitle>
+              <CardDescription>Check back soon for new content!</CardDescription>
+            </CardHeader>
+          </Card>
         ) : (
           posts.map((post) => (
             <Card key={post.id} className="flex flex-col h-full hover:shadow-lg transition-shadow">
