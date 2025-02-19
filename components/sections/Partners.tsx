@@ -74,6 +74,7 @@ export default function Partners() {
                 width={120}
                 height={40}
                 className="h-25 w-auto object-contain"
+                unoptimized
               />
             </a>
           ))}
