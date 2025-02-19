@@ -18,7 +18,7 @@ const InvestmentThesis = () => {
           <div className="flex flex-row items-center justify-between gap-8">
             <ul className="list-disc pl-6 space-y-2 text-gray-700">
               <li>Pre-seed investments in student-led startups</li>
-              <li>Initial checks between $25K - $100K</li>
+              <li>Initial checks between $50K</li>
               <li>Sector-agnostic with particular interest in:</li>
               <ul className="list-circle pl-6 space-y-1 mt-2">
                 <li>Enterprise SaaS</li>

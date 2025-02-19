@@ -45,7 +45,7 @@ export default function BlogPage() {
   const { toast } = useToast();
 
   // Define which statuses to hide
-  const hiddenStatuses = ['deleted']; // Add or remove statuses as needed
+  const hiddenStatuses = ['deleted','archived']; // Add or remove statuses as needed
 
   const convertedDate = (date: string) => {
     return new Date(Number(date) * 1000).toLocaleDateString('en-US', {

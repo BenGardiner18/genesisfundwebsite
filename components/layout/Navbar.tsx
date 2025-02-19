@@ -58,9 +58,9 @@ const Navbar = () => {
                     <ListItem href="/team" title="Team">
                       Meet the people behind Genesis Fund
                     </ListItem>
-                    <ListItem href="/resources" title="Founder Resources">
+                    {/* <ListItem href="/resources" title="Founder Resources">
                       Access our curated collection of startup resources and join our founder community
-                    </ListItem>
+                    </ListItem> */}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>

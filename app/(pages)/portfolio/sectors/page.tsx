@@ -56,7 +56,7 @@ const SectorsPage = () => {
           Investment Sectors
         </h1>
         <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-          We invest in transformative technology companies across these key sectors
+          We are software focused and sector agnostic.
         </p>
       </div>
 

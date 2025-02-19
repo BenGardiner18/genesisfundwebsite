@@ -51,7 +51,7 @@ const ResourcesPage = () => {
       </div>
 
       {/* Community Section */}
-      <div className="bg-blue-50 rounded-xl p-8 mb-16">
+      {/* <div className="bg-blue-50 rounded-xl p-8 mb-16">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-block p-3 bg-blue-100 rounded-full mb-4">
             <Users className="h-8 w-8 text-blue-600" />
@@ -61,7 +61,7 @@ const ResourcesPage = () => {
             Connect with fellow founders, share experiences, and get real-time advice from our network of entrepreneurs and investors.
           </p>
           <Link 
-            href="https://chat.whatsapp.com/your-group-link" 
+            href="https://chat.whatsapp.com/Hi2evLWeL55Lv0gVQVybds" 
             target="_blank"
             className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 md:py-4 md:text-lg md:px-10"
           >
@@ -69,7 +69,7 @@ const ResourcesPage = () => {
             Join WhatsApp Group
           </Link>
         </div>
-      </div>
+      </div> */}
 
       {/* Additional Resources Grid */}
       <div className="grid md:grid-cols-3 gap-6">
