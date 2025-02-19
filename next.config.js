@@ -4,9 +4,24 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  images: { unoptimized: true },
+  images: {
+    domains: ['images.unsplash.com'],
+  },
   devIndicators: {
     autoPrerender: false,
+  },
+  webpack: (config, { isServer }) => {
+    // Only run this on client-side bundles
+    if (!isServer) {
+      const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+      config.plugins.push(
+        new MiniCssExtractPlugin({
+          filename: 'static/css/[name].[contenthash].css',
+          chunkFilename: 'static/css/[name].[contenthash].css',
+        })
+      );
+    }
+    return config;
   },
 };
 

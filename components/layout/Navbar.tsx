@@ -41,9 +41,9 @@ const Navbar = () => {
                     <ListItem href="/portfolio/sectors" title="Sectors">
                       Explore our investments across different industries
                     </ListItem>
-                    <ListItem href="/portfolio/highlights" title="Highlights">
+                    {/* <ListItem href="/portfolio/highlights" title="Highlights">
                       Key achievements and milestones from our portfolio
-                    </ListItem>
+                    </ListItem> */}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>

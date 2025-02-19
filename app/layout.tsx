@@ -1,11 +1,16 @@
 import '@/styles/globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Roboto_Condensed } from 'next/font/google';
 import Footer from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
 const inter = Inter({ subsets: ['latin'] });
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
+
+const robotoCondensed = Roboto_Condensed({
+  subsets: ["latin"],
+  variable: "--font-roboto-condensed",
+})
 
 export const metadata: Metadata = {
   title: 'Genesis Fund - Student Venture Capital',
@@ -23,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${robotoCondensed.variable}`} suppressHydrationWarning>
       <head>
         <link 
           rel="alternate" 

@@ -1,13 +1,13 @@
 const Stats = () => {
   const stats = [
-    { value: "$2M+", label: "Assets Under Management" },
-    { value: "25+", label: "Portfolio Companies" },
-    { value: "40+", label: "University Partners" },
-    { value: "3x", label: "Average Portfolio Growth" },
+    { value: "$2M+", label: "Target Assets Under Management" },
+    { value: "30", label: "Target Portfolio Companies" },
+    { value: "20+", label: "Partnered VC Firms" },
+    { value: "$50k", label: "Average Check Size" },
   ];
 
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="bg-white sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="text-center">
