@@ -55,31 +55,35 @@ const partners = [
 
 export default function Partners() {
   return (
-    <section className="py-16 bg-background">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          30+ World-Class Investors We Partner With
-        </h2>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center justify-items-center">
+    <section className="py-24 bg-secondary border-y border-gray-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-4">
+            Our VC Partners
+          </h2>
+        </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {partners.map((partner) => (
             <a
               key={partner.name}
               href={partner.link}
               target="_blank"
               rel="noopener noreferrer"
+              className="bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-all duration-300"
             >
               <Image
                 src={partner.logo}
                 alt={partner.name}
                 width={120}
                 height={40}
-                className="h-25 w-auto object-contain"
+                className="h-25 w-auto object-contain grayscale hover:grayscale-0 transition-all duration-300"
                 unoptimized
               />
             </a>
           ))}
         </div>
-        <p className="italic text-center mt-4 text-gray-600">
+        <p className="text-center mt-12 text-gray-600 tracking-wide">
           We share exclusive deal flow with our VC partners on a weekly basis
         </p>
       </div>

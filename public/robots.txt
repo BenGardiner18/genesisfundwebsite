@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+
+# Important pages to crawl
+Allow: /portfolio
+Allow: /investment-thesis
+Allow: /blog
+Allow: /resources
+Allow: /team
+
+Sitemap: https://genesisfund.co/sitemap.xml
+
+# Optimize crawl rate
+Crawl-delay: 10 

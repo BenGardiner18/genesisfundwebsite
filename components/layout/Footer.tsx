@@ -8,23 +8,23 @@ const socialMediaLinks = [
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-10 transition-all duration-300 ease-in-out">
+    <footer className="bg-secondary border-t border-gray-200 py-12">
       <div className="max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-2xl font-bold mb-4">Connect with Us</h2>
-        <div className="flex justify-center space-x-6 mb-4">
+        <h2 className="text-2xl font-bold mb-6 tracking-tight text-gray-900">Connect with Us</h2>
+        <div className="flex justify-center space-x-8 mb-6">
           {socialMediaLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="transform transition-transform duration-300 hover:scale-110"
+              className="transform transition-all duration-300 hover:scale-105 text-gray-600 hover:text-primary"
             >
               {link.icon}
             </a>
           ))}
         </div>
-        <p className="mt-4 text-sm opacity-75">© 2024 Genesis Fund. All rights reserved.</p>
+        <p className="mt-6 text-sm text-gray-500">© 2024 Genesis Fund. All rights reserved.</p>
       </div>
     </footer>
   );
