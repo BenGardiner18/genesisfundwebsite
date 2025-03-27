@@ -7,7 +7,7 @@ const Stats = () => {
   ];
 
   return (
-    <div className="bg-white sm:py-32">
+    <div className="bg-secondary sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:max-w-none">
           <div className="text-center">
@@ -15,16 +15,16 @@ const Stats = () => {
               Trusted by Student Founders Across the Nation
             </h2>
             <p className="mt-4 text-lg leading-8 text-gray-600">
-              We've built a track record of identifying and supporting exceptional student entrepreneurs.
+              We&apos;ve built a track record of identifying and supporting exceptional student entrepreneurs.
             </p>
           </div>
-          <dl className="mt-16 grid grid-cols-1 gap-0.5 overflow-hidden rounded-2xl text-center sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((stat) => (
-              <div key={stat.label} className="flex flex-col bg-gray-50 p-8">
-                <dt className="text-sm font-semibold leading-6 text-gray-600">
+              <div key={stat.label} className="bg-white p-8 border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-all">
+                <dt className="text-sm font-semibold leading-6 text-gray-600 tracking-wide uppercase">
                   {stat.label}
                 </dt>
-                <dd className="order-first text-3xl font-semibold tracking-tight text-blue-600">
+                <dd className="order-first text-3xl font-bold tracking-tight text-primary">
                   {stat.value}
                 </dd>
               </div>

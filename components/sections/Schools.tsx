@@ -71,10 +71,10 @@ const schools: School[] = [
 
 const Schools = () => {
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+    <section className="py-24 bg-white border-t border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 font-display mb-4">
+          <h2 className="text-4xl font-bold text-gray-900 tracking-tight mb-4">
             Boston Schools We Cover
           </h2>
         </div>
@@ -85,9 +85,13 @@ const Schools = () => {
               key={`${school.name}-${index}`}
               className="flex justify-center"
             >
-              <a href={school.website} target="_blank" rel="noopener noreferrer" 
-                 className="block">
-                <div className="relative w-24 h-24 mb-2">
+              <a 
+                href={school.website} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <div className="relative w-24 h-24 mb-3 transition-transform duration-300 group-hover:scale-105">
                   <Image
                     src={school.logo}
                     alt={`${school.name} logo`}
@@ -95,12 +99,14 @@ const Schools = () => {
                     className="object-contain"
                   />
                 </div>
-                <h3 className="text-center text-sm font-medium text-gray-900">{school.name}</h3>
+                <h3 className="text-center text-sm font-medium text-gray-900 tracking-wide">
+                  {school.name}
+                </h3>
               </a>
             </div>
           ))}
         </div>
-        <p className="text-center mt-8 text-gray-600 italic">...and more</p>
+        <p className="text-center mt-12 text-gray-600 italic tracking-wide">...and more</p>
       </div>
     </section>
   );

@@ -16,13 +16,13 @@ import { cn } from "@/lib/utils";
 
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+    <nav className="fixed top-0 w-full bg-white z-50 border-b border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
               <Logo />
-              <span className="ml-3 text-xl font-semibold">Genesis Fund</span>
+              <span className="ml-3 text-xl font-semibold tracking-tight">Genesis Fund</span>
             </Link>
           </div>
 
@@ -38,9 +38,9 @@ const Navbar = () => {
                     <ListItem href="/investment-thesis" title="Investment Thesis">
                       Learn about our investment strategy and focus areas
                     </ListItem>
-                    <ListItem href="/portfolio/sectors" title="Sectors">
+                    {/* <ListItem href="/portfolio/sectors" title="Sectors">
                       Explore our investments across different industries
-                    </ListItem>
+                    </ListItem> */}
                     {/* <ListItem href="/portfolio/highlights" title="Highlights">
                       Key achievements and milestones from our portfolio
                     </ListItem> */}

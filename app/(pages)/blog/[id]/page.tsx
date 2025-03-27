@@ -91,60 +91,61 @@ export default function BlogPostPage() {
   }
 
   return (
-    <div className="container max-w-4xl mx-auto pb-5">
-      <div className="flex justify-between items-center my-4">
+    <main className="container max-w-4xl mx-auto pb-5">
+      <nav className="flex justify-between items-center my-4" aria-label="Blog navigation">
         <Button asChild>
-          <Link href="/blog">← Back to Blog</Link>
+          <Link href="/blog" aria-label="Return to blog listing">← Back to Blog</Link>
         </Button>
         {post?.web_url && (
           <Button asChild variant="outline">
-            <Link href={post.web_url} target="_blank">Read it in Beehiiv</Link>
+            <Link href={post.web_url} target="_blank" rel="noopener noreferrer" aria-label="Read article on Beehiiv">
+              Read it in Beehiiv
+            </Link>
           </Button>
         )}
-      </div>
+      </nav>
 
       {loading ? (
         <PostSkeleton />
       ) : (
-        <Card className="rounded-lg">
-          <CardHeader>
-            <div className="space-y-4">
-              <h1 className="text-4xl font-bold">{post?.title}</h1>
-              {post?.thumbnail_url && (
-                <div 
-                  className="w-full h-[400px] bg-cover bg-center rounded-lg" 
-                  style={{ backgroundImage: `url(${post.thumbnail_url})` }}
-                />
-              )}
-              <div className="flex flex-row gap-2 justify-between">
-                <div className="flex items-center gap-2 text-muted-foreground">
-                  {post?.authors?.length && post.authors.length > 0 && (
-                    <p className="text-sm">
-                      By {post.authors.join(', ')}
-                    </p>
-                  )}
-                </div>
-                <div className="flex items-center gap-4">
-                  <p className="text-sm text-muted-foreground">
-                    {post?.publish_date && new Date(post.publish_date * 1000).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long', 
-                      day: 'numeric'
-                    })}
+        <article className="rounded-lg">
+          <header className="space-y-4">
+            <h1 className="text-4xl font-bold">{post?.title}</h1>
+            {post?.thumbnail_url && (
+              <img 
+                src={post.thumbnail_url}
+                alt={`Featured image for ${post?.title}`}
+                className="w-full h-[400px] object-cover rounded-lg"
+              />
+            )}
+            <div className="flex flex-row gap-2 justify-between">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                {post?.authors?.length && post.authors.length > 0 && (
+                  <p className="text-sm">
+                    By {post.authors.join(', ')}
                   </p>
-                  {post?.status && <Badge variant="secondary">{post.status}</Badge>}
-                </div>
+                )}
+              </div>
+              <div className="flex items-center gap-4">
+                <p className="text-sm text-muted-foreground">
+                  {post?.publish_date && new Date(post.publish_date * 1000).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long', 
+                    day: 'numeric'
+                  })}
+                </p>
+                {post?.status && <Badge variant="secondary">{post.status}</Badge>}
               </div>
             </div>
-          </CardHeader>
+          </header>
           <CardContent>
             <div 
               className="prose prose-lg max-w-none"
               dangerouslySetInnerHTML={{ __html: post?.free_web_content || '' }}
             />
           </CardContent>
-        </Card>
+        </article>
       )}
-    </div>
+    </main>
   );
 }
